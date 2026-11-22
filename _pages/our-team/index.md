@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Our Team
 permalink: /our-team/
 ---

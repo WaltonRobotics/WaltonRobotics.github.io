@@ -1,0 +1,65 @@
+{%- comment -%} Overrides TeXt's footer. Content comes from site.wrt in _config.yml. {%- endcomment -%}
+<footer class="wr-footer js-page-footer">
+  <div class="wr-footer-inner">
+
+    <div class="wr-footer-col">
+      <p class="wr-footer-name">{{ site.wrt.name }} Team</p>
+      <p class="wr-footer-number">Team {{ site.wrt.number }}</p>
+      <p class="wr-footer-tagline">{{ site.wrt.tagline }}</p>
+    </div>
+
+    <div class="wr-footer-col">
+      <p class="wr-footer-heading">Connect</p>
+      <div class="wr-social-links">
+        {%- for s in site.wrt.social %}
+        {%- if s.url %}
+        <a href="{{ s.url }}" rel="noopener">{{ s.name }}</a>
+        {%- else %}
+        <span class="wr-social-pending" title="Link coming soon">{{ s.name }}</span>
+        {%- endif %}
+        {%- endfor %}
+      </div>
+      {%- if site.wrt.qr_code %}
+      <img class="wr-qr" src="{{ site.wrt.qr_code | relative_url }}" alt="QR code">
+      {%- else %}
+      <div class="wr-qr wr-qr-placeholder" aria-hidden="true"><span>QR</span></div>
+      {%- endif %}
+    </div>
+
+    <div class="wr-footer-col">
+      <p class="wr-footer-heading">Leadership</p>
+      {%- if site.wrt.leadership.size > 0 %}
+      <ul class="wr-leadership">
+        {%- for l in site.wrt.leadership %}
+        <li><span>{{ l.role }}</span> {% if l.email %}<a href="mailto:{{ l.email }}">{{ l.name }}</a>{% else %}{{ l.name }}{% endif %}</li>
+        {%- endfor %}
+      </ul>
+      {%- else %}
+      <p class="wr-footer-placeholder">Coming soon</p>
+      {%- endif %}
+    </div>
+
+  </div>
+  <div class="wr-footer-bottom">
+    <p>&copy; {{ site.time | date: '%Y' }} {{ site.wrt.name }} — Team {{ site.wrt.number }}. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+  (function () {
+    var root = document.documentElement;
+    var themeBtn = document.getElementById('wr-theme-toggle');
+    if (themeBtn) themeBtn.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('wrt-theme', next);
+    });
+    var navToggle = document.getElementById('wr-nav-toggle');
+    var nav = document.getElementById('wr-main-nav');
+    if (navToggle && nav) {
+      navToggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('is-open');
+        navToggle.setAttribute('aria-expanded', String(open));
+      });
+    }
+  })();
+</script>
