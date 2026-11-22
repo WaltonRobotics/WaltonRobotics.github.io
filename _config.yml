@@ -108,6 +108,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - AGENTS.md
+  - CLAUDE.md
   - node_modules
   - vendor/
   - .sass-cache/
