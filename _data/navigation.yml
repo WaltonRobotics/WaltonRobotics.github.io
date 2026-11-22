@@ -1,0 +1,13 @@
+header:
+  - title: Home
+    url: /
+  - title: About
+    url: /about/
+  - title: Outreach
+    url: /outreach/
+  - title: Robots
+    url: /robots/
+  - title: Sponsors
+    url: /sponsors/
+  - title: Contact
+    url: /contact/

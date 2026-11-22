@@ -24,24 +24,92 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 youtube_username: "@2974walt"
 github_username:  WaltonRobotics
 instagram_username: "2974walt"
+lang: en
+timezone: America/New_York
+
+# TeXt theme author info (used in footer/sidebar links)
+author:
+  type  : organization
+  name  : 2974 Walton Robotics
+  avatar: /assets/logo-square.png
+  email : contactus@waltonrobotics.org
+  github: WaltonRobotics
+
+repository: WaltonRobotics/WaltonRobotics.github.io
+repository_tree: main
 # Build settings
 markdown: kramdown
-theme: minima
+remote_theme: "kitian616/jekyll-TeXt-theme"
+highlighter: rouge
+permalink: date
+excerpt_separator: <!--more-->
 plugins:
+  - jekyll-remote-theme
   - jekyll-feed
+  - jekyll-sitemap
+  - jemoji
 include:
   - _pages
-header_pages:
-  - _pages/our-team/index.html
+
+# TeXt theme settings
+# "default" (light) is the base skin; the navy/red palette and dark mode are
+# layered on top with CSS variables in _sass/custom.scss.
+text_skin: default
+highlight_theme: tomorrow-night
+
+# Walton Robotics brand / chrome (used by _includes/header.html & footer.html)
+wrt:
+  number: "2974"
+  name: Walton Robotics
+  logo: /assets/logo-square.png
+  tagline: Marietta, Georgia · FIRST Robotics Competition
+  default_theme: auto        # auto (follow OS) | light | dark
+  cta:
+    text: Support WRT
+    url: /sponsors/
+  social:                    # entries without a url show as a greyed-out placeholder
+    - name: Instagram
+      url: https://www.instagram.com/2974walt/
+    - name: X / Twitter
+      url:                   # TODO: e.g. https://x.com/<handle>
+    - name: YouTube
+      url: https://www.youtube.com/@2974walt
+    - name: Chief Delphi
+      url:                   # TODO: e.g. https://www.chiefdelphi.com/u/<user>
+    - name: GitHub
+      url: https://github.com/WaltonRobotics
+    - name: The Blue Alliance
+      url: https://www.thebluealliance.com/team/2974
+  qr_code:                   # path to a QR image, e.g. /assets/qr.png
+  leadership: []             # - { role: Executive Director, name: ..., email: ... }
+mathjax: true
+search:
+  provider: default
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+      aside:
+        toc: true
+      show_subscribe: true
+  - scope:
+      path: "_pages"
+    values:
+      layout: article
+      show_edit_on_github: false
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - AGENTS.md
+  - CLAUDE.md
+  - node_modules
+  - vendor/
+  - .sass-cache/

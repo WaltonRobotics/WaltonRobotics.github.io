@@ -1,0 +1,41 @@
+{%- comment -%} Overrides TeXt's header. Nav items come from _data/navigation.yml. {%- endcomment -%}
+<a class="wr-skip-link" href="#wr-main">Skip to content</a>
+<header class="wr-header">
+  <div class="wr-nav-inner">
+    <a class="wr-brand" href="{{ '/' | relative_url }}" aria-label="{{ site.wrt.name }} home">
+      {%- if site.wrt.logo %}
+      <img class="wr-brand-mark" src="{{ site.wrt.logo | relative_url }}" width="30" height="30" alt="">
+      {%- endif %}
+      <span class="wr-brand-text">
+        <span class="wr-brand-number">{{ site.wrt.number }}</span>
+        <span class="wr-brand-name">{{ site.wrt.name | replace: ' ', '&nbsp;' }}</span>
+      </span>
+    </a>
+
+    <nav class="wr-main-nav" id="wr-main-nav" aria-label="Primary">
+      {%- for _item in site.data.navigation.header %}
+      {%- assign _url = _item.url | relative_url %}
+      <a href="{{ _url }}"{% if page.url == _item.url %} aria-current="page"{% endif %}>{{ _item.title }}</a>
+      {%- endfor %}
+    </nav>
+
+    <div class="wr-nav-actions">
+      {%- if site.search.provider %}
+      <button class="wr-icon-btn js-search-toggle" type="button" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><line x1="15.5" y1="15.5" x2="21" y2="21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      {%- endif %}
+      <button id="wr-theme-toggle" class="wr-icon-btn" type="button" aria-label="Switch color theme">
+        <svg class="wr-icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="1.5" x2="12" y2="4.5"/><line x1="12" y1="19.5" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4.5" y2="12"/><line x1="19.5" y1="12" x2="22.5" y2="12"/><line x1="4.4" y1="4.4" x2="6.5" y2="6.5"/><line x1="17.5" y1="17.5" x2="19.6" y2="19.6"/><line x1="4.4" y1="19.6" x2="6.5" y2="17.5"/><line x1="17.5" y1="6.5" x2="19.6" y2="4.4"/></g></svg>
+        <svg class="wr-icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z" fill="currentColor"/></svg>
+      </button>
+      {%- if site.wrt.cta.url %}
+      <a class="wr-btn wr-btn-cta" href="{{ site.wrt.cta.url | relative_url }}">{{ site.wrt.cta.text }}</a>
+      {%- endif %}
+      <button id="wr-nav-toggle" class="wr-icon-btn wr-nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="wr-main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<span id="wr-main"></span>

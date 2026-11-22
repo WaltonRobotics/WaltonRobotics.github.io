@@ -1,0 +1,85 @@
+---
+layout: page
+full_width: true
+show_title: false
+---
+{%- assign d = site.data.home -%}
+<div class="wr-landing">
+
+  <section class="wr-hero">
+    <span class="wr-hero-ghost-number" aria-hidden="true">{{ d.hero.ghost }}</span>
+    <div class="wr-container wr-hero-inner">
+      <h1 class="wr-hero-title">{{ d.hero.title_lines | join: '<br>' }}</h1>
+      <p class="wr-hero-subtitle">{{ d.hero.subtitle }}</p>
+      <div class="wr-hero-actions">
+        {%- for a in d.hero.actions -%}
+          <a class="wr-btn wr-btn-{{ a.style | default: 'primary' }}" href="{{ a.url | relative_url }}">{{ a.text }}</a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="wr-section wr-who">
+    <div class="wr-container wr-who-grid">
+      <div class="wr-who-copy">
+        <h2 class="wr-section-heading">{{ d.who.heading }}</h2>
+        {%- for p in d.who.paragraphs %}
+        <p>{{ p }}</p>
+        {%- endfor %}
+      </div>
+      <div class="wr-spec-plate">
+        <div class="wr-spec-plate-head">{{ d.who.spec_plate.title }}</div>
+        <div class="wr-spec-plate-body">
+          <p>{{ d.who.spec_plate.body }}</p>
+          <div class="wr-spec-stats">
+            {%- for s in d.who.spec_plate.stats %}
+            <div>
+              <span class="wr-spec-stat-value">{{ s.value }}</span>
+              <span class="wr-spec-stat-label">{{ s.label }}</span>
+            </div>
+            {%- endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wr-section wr-impact">
+    <div class="wr-container">
+      <h2 class="wr-section-heading">{{ d.impact.heading }}</h2>
+      <p class="wr-section-lede">{{ d.impact.lede }}</p>
+      <div class="wr-impact-grid">
+        {%- for c in d.impact.cards %}
+        <article class="wr-impact-card">
+          {% include wr/icon.html name=c.icon %}
+          <h3>{{ c.title }}</h3>
+          <p>{{ c.text }}</p>
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="wr-section wr-sponsors">
+    <div class="wr-container">
+      <h2 class="wr-section-heading">{{ d.sponsors.heading }}</h2>
+      {%- if d.sponsors.logos.size == 0 %}
+      <p class="wr-section-lede">{{ d.sponsors.lede }}</p>
+      <div class="wr-sponsors-grid" aria-hidden="true">
+        {%- for i in (1..d.sponsors.placeholders) %}
+        <div class="wr-sponsor-slot">Logo</div>
+        {%- endfor %}
+      </div>
+      {%- else %}
+      <div class="wr-sponsors-grid">
+        {%- for s in d.sponsors.logos %}
+        <a class="wr-sponsor-slot" href="{{ s.url | default: '#' }}"><img src="{{ s.logo | relative_url }}" alt="{{ s.name }}"></a>
+        {%- endfor %}
+      </div>
+      {%- endif %}
+      <p class="wr-sponsors-note">{{ d.sponsors.note }}</p>
+    </div>
+  </section>
+
+  {{ content }}
+</div>

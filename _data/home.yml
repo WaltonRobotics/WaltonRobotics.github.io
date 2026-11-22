@@ -1,0 +1,77 @@
+# Content for the home page (rendered by _layouts/team-landing.html).
+hero:
+  ghost: "2974"
+  title_lines:
+    - Building the future.
+    - Inspiring the community.
+  subtitle: >-
+    Walton Robotics Team 2974 — an FRC team from Marietta, Georgia, fostering
+    excellence, collaboration, and engineering innovation.
+  actions:
+    - text: Explore Our Impact
+      url: /outreach/
+      style: primary
+    - text: Meet Our Sponsors
+      url: /sponsors/
+      style: outline
+
+who:
+  heading: Who we are
+  paragraphs:
+    - >-
+      Team 2974 operates like a professional engineering organization built by
+      students. From our design reviews to our outreach programs, we hold
+      ourselves to executive-level standards of communication, documentation,
+      and accountability — because that's the standard the FIRST community
+      deserves, and the standard that prepares our members for what comes
+      after high school.
+    - >-
+      Every season, our subteams — mechanical, electrical, programming,
+      business, and media — work as one organization toward a single robot
+      and a single mission: build excellent engineers and excellent people.
+  spec_plate:
+    title: Walt & WaterGate
+    body: >-
+      Walt is our mascot and WaterGate is our current competition robot —
+      the latest step in a build tradition that has carried Team 2974 to
+      events across the country and around the world.
+    stats:
+      - value: "5"
+        label: Continents reached
+      - value: "1"
+        label: Trip to space
+
+impact:
+  heading: Impact & community outreach
+  lede: >-
+    Walton Robotics runs three ongoing programs that bring engineering to
+    students long before they reach an FRC field.
+  cards:
+    - icon: person
+      title: GirlsFIRST
+      text: >-
+        Empowering women in STEM through dedicated community events built to
+        grow the next generation of female engineers.
+    - icon: grid
+      title: FIRST LEGO League & FTC
+      text: >-
+        Supporting Walton's junior robotics programs and hosting local FLL and
+        FTC tournaments throughout the year.
+    - icon: gear
+      title: Destination Engineering & Summer Camps
+      text: >-
+        Hands-on youth camps and year-round practice field management that
+        turn curiosity into real engineering skill.
+
+sponsors:
+  heading: Our sponsors
+  lede: Sponsor logos are being updated — full recognition grid coming soon.
+  # Add logos as: - name: Acme Corp
+  #                 logo: /assets/sponsors/acme.png
+  #                 url: https://acme.example
+  # Until logos exist, `placeholders` empty slots are shown.
+  logos: []
+  placeholders: 5
+  note: >-
+    Team 2974 is grateful to the mentors, companies, and community partners
+    whose support makes every build season possible.
